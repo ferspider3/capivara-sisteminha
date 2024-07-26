@@ -1,0 +1,14 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#sidebar {
+    height: 100vh;
+    position: fixed;
+}
+
+#content {
+    margin-left: 280px;
+    padding: 20px;
+}
