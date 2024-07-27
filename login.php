@@ -1,30 +1,7 @@
 <?php
-require 'includes/conexao.php';
+session_start();
 require 'includes/functions.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Verificação do formato do e-mail
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $login_error = "Formato de e-mail inválido.";
-    } else {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
-
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['access_level'] = $user['access_level'];
-            header('Location: index.php');
-            exit();
-        } else {
-            $login_error = "Email ou senha incorretos.";
-        }
-    }
-}
+require 'includes/messages.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
@@ -32,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Acesso</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon16.png">
 </head>
 <body>
     <div class="d-flex vh-100">
@@ -41,21 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <img src="images/login.png" class="figure-img img-fluid rounded login" alt="capivara">
                 </figure>
                 <h2 class="mb-4">Login</h2>
-                <form class="form-signin w-100 m-auto" method="post" action="">
-                    <?php if (!empty($login_error)): ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?= $login_error ?>
-                        </div>
-                    <?php endif; ?>
-                    <div class="form-floating mb-1">
+                <form class="form-signin login-form w-100 m-auto" method="post" action="includes/check_login.php">
+                    <?php include 'includes/toasts.php'; ?>
+                    <div class="form-floating form-email">
                         <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                         <label for="email" class="form-label fw-normal">Endereço de E-mail</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating form-senha">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
                         <label for="password" class="form-label fw-normal">Senha</label>
                     </div>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mt-3">
                         <button type="submit" class="btn btn-lg btn-primary w-50">Login</button>
                     </div>
                 </form>
