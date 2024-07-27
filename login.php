@@ -1,4 +1,5 @@
 <?php
+// login.php
 require 'includes/conexao.php';
 require 'includes/functions.php';
 
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: index.php');
         exit();
     } else {
-        echo "Email ou senha incorretos.";
+        $login_error = "Email ou senha incorretos.";
     }
 }
 ?>
@@ -28,20 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-    <h2>Login</h2>
-    <form method="post" action="">
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+    <div class="d-flex vh-100">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="text-center w-50">
+                <h2>Login</h2>
+                <form class="form-signin w-100 m-auto" method="post" action="">
+                    <?php if (!empty($login_error)): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= $login_error ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <label for="email" class="form-label fw-normal">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
+                        <label for="password" class="form-label fw-normal">Senha</label>
+                    </div>
+                    <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-</div>
+    </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
