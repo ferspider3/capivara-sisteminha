@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
         $_SESSION['access_level'] = $user['access_level'];
-        $_SESSION['login_attempts'] = 0; // Reset login attempts on successful login
+        $_SESSION['login_attempts'] = 0;
         add_message("Login realizado com sucesso.", 'success');
         header('Location: ../index.php');
         exit();
