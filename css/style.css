@@ -12,3 +12,34 @@ body, html {
     margin-left: 280px;
     padding: 20px;
 }
+
+.login {
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.toast-body {
+    text-align: left;
+}
+
+.login-form .form-control {
+    border-radius: 0;
+    margin-bottom: -1px;
+}
+
+.login-form .form-email .form-control {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    border-bottom: 1px solid rgba(206, 212, 218, 0.3);
+}
+
+.login-form .form-senha .form-control {
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    border-top: 1px solid rgba(206, 212, 218, 0.3);
+}
+
+.login-form .form-label {
+    padding-top: 0.5rem;
+}
