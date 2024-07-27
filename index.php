@@ -5,11 +5,12 @@ require 'includes/messages.php';
 redirect_if_not_logged_in();
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 <head>
     <title>Página Inicial</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon16.png">
 </head>
 <body>
 <?php include 'includes/toasts.php'; ?>
