@@ -43,3 +43,76 @@ body, html {
 .login-form .form-label {
     padding-top: 0.5rem;
 }
+
+#password-requirements ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#password-requirements li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.valid:before {
+    content: '\2714';
+    color: green;
+    margin-right: 10px;
+}
+
+.invalid:before {
+    content: '\2716';
+    color: red;
+    margin-right: 10px;
+}
+
+.divider {
+    height: 80%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: auto 20px;
+}
+
+.login-section, .register-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.figure-img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.figure-login {
+    margin-top: -330px;
+}
+
+.divider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.divider-container .divider {
+    position: absolute;
+    height: 100%;
+}
+
+.register-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.register-button {
+    width: 50%;
+}
+
+.d-flex.align-items-center {
+    align-items: center;
+}
