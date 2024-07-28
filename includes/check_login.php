@@ -4,17 +4,6 @@ require 'conexao.php';
 require 'functions.php';
 require 'messages.php';
 
-// Função para verificar se o valor contém comandos SQL
-function contains_sql_commands($value) {
-    $sql_commands = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'TRUNCATE', 'ALTER', 'CREATE', 'RENAME'];
-    foreach ($sql_commands as $command) {
-        if (stripos($value, $command) !== false) {
-            return true;
-        }
-    }
-    return false;
-}
-
 // Função para registrar tentativa de login na sessão
 function record_login_attempt_in_session() {
     if (!isset($_SESSION['login_attempts'])) {
