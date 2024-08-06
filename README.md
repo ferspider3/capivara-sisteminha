@@ -95,7 +95,9 @@ define('DB_PASS', 'sua-senha');
 
 ### Gerenciamento de Reserva
 - Navegue até a seção de agendamento.
-- Selecione uma sala e escolha a data e hora de início e término.
+- Selecione o dia desejado.
+- Ao abrir o dia, selecione o horário.
+- Escolha a sala e definda a data e hora de início e término, ao qual carregará previamente.
 - Clique em "Reservar".
 <img src="https://github.com/ferspider3/capivara-sisteminha/blob/main/print/3.PNG" alt="Página de Reserva" min-width="400px" max-width="400px" width="400px">
 
