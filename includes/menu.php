@@ -1,42 +1,44 @@
 <?php
+require 'conexao.php';
+require 'functions.php';
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
-<div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+<div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">Capivarinha</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-            <a href="index.php" class="nav-link <?= $current_page == 'index.php' ? 'active' : '' ?>" aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+        <li>
+            <a href="index.php" class="nav-link text-white <?= $current_page == 'index.php' ? 'active' : '' ?>">
+                <i class="fa-solid fa-house"></i>
                 Início
             </a>
         </li>
         <li>
-            <a href="painel.php" class="nav-link text-white <?= $current_page == 'painel.php' ? 'active' : '' ?>">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                Painel
-            </a>
-        </li>
-        <li>
             <a href="reserve_room.php" class="nav-link text-white <?= $current_page == 'reserve_room.php' ? 'active' : '' ?>">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                <i class="fa-solid fa-calendar-days"></i>
                 Agendamento
             </a>
         </li>
         <?php if (is_admin()): ?>
             <li>
+                <a href="painel.php" class="nav-link text-white <?= $current_page == 'painel.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-table-columns"></i>
+                    Painel
+                </a>
+            </li>
+            <li>
                 <a href="manage_rooms.php" class="nav-link text-white <?= $current_page == 'manage_rooms.php' ? 'active' : '' ?>">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                    <i class="fa-solid fa-book"></i>
                     Gerenciar Salas
                 </a>
             </li>
             <li>
                 <a href="admin.php" class="nav-link text-white <?= $current_page == 'admin.php' ? 'active' : '' ?>">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                    <i class="fa-solid fa-users"></i>
                     Usuários
                 </a>
             </li>
